@@ -1,0 +1,28 @@
+#bg {
+  background-repeat: no-repeat;
+  background-size: 1850px 1000px;
+  background-position: bottom;
+}
+
+#jumbotron-login {
+    width: 500px;
+    height: 500px;
+}
+
+#jumbotron-chart {
+  background-color: khaki;
+}
+
+.center-h {
+  text-align: center;
+}
+
+.block {
+  display: block;
+  content: "";
+  margin-top: 6px;
+}
+
+.center-div {
+  text-align: center;
+}

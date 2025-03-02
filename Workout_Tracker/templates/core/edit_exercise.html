@@ -1,0 +1,30 @@
+<html>
+  <head>
+    {% load static %}
+    {% include "links.html" %}
+    {% load crispy_forms_tags %}
+    <link rel="stylesheet" href="{%static 'workout.css' %}"/>
+  </head>
+  <body>
+    {% include "nav.html" %}
+    <div class="jumbotron">
+      <h1>Edit Exercise</h1>
+      <br>
+      <form method="POST">
+        {% csrf_token %}
+        <b>Enter exercise name</b>
+        {{ exercise_form.name|as_crispy_field }}
+        <b>Enter the number of sets</b>
+        {{ exercise_details_form.sets|as_crispy_field }}
+        <b>Enter the number of reps</b>
+        {{ exercise_details_form.reps|as_crispy_field }}
+        <b>Enter the weight (Ib)</b>
+        {{ exercise_details_form.weight|as_crispy_field }}
+          <div>
+          <input type="submit" class="btn btn-dark" name="edit_exercise" value="Update"/>
+          <a href="/core/view/{{ id }}/" class="btn btn-danger">Cancel</a>
+          </div>
+      </form>
+    </div>
+  </body>
+</html>

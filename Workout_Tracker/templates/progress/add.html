@@ -1,0 +1,26 @@
+<html>
+  <head>
+    {% load static %}
+    {% include "links.html" %}
+    {% load crispy_forms_tags %}
+    <link rel="stylesheet" href="{%static 'workout.css' %}"/>
+  </head>
+  <body>
+    {% include "nav.html" %}
+    <div class="jumbotron">
+      <h1>Track exercise</h1>
+      <br>
+      <form method="POST">
+        {% csrf_token %}
+        <b>Select an exercise</b>
+        {{ exercise_data.exercise|as_crispy_field }}
+        <b>Enter your max for that exercise (Ib)</b>
+        {{ weight_data.weight|as_crispy_field}}
+          <div>
+          <input type="submit" class="btn btn-dark" name="add" value="Track"/>
+          <a href="/progress/" class="btn btn-danger">Cancel</a>
+          </div>
+      </form>
+    </div>
+  </body>
+</html>

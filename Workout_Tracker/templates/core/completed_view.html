@@ -1,0 +1,41 @@
+<html>
+<head>
+  {% load static %}
+  <meta charset="utf-8">
+  <title>Completed View</title>
+  <!--bootstrap includes-->
+  {% include "links.html" %}
+  <link rel="stylesheet" href="{%static 'workout.css' %}"/>
+  <script src="{%static 'workout.js' %}"></script>
+</head>
+<body>
+  {% include "nav.html" %}
+  <p>
+    <h1 class="center-h">Exercises</h1>
+    <br>
+    <br>
+      <table class="table-striped" cellspacing="0" width="100%">
+	    <tr>
+        <th><br><p>Exercise Name</p></th>
+	      <th><br><p>Reps</p></th>
+		    <th><br><p>Sets</p></th>
+        <th><br><p>Weight (Ib)</p></th>
+	    </tr>
+      {% for row in table_data %}
+      <tr>
+        <td><br><p>{{ row.exercise }}</p></td>
+        <td><br><p>{{ row.reps }}</p></td>
+        <td><br><p>{{ row.sets }}</p></td>
+        <td><br><p>{{ row.weight }}</p></td>
+		   </tr>
+       {% endfor %}
+      </table>
+      <br>
+      <br>
+      <div class="center-div">
+      <a href="/core/completed_workouts/" class="btn btn-danger">Back</a>
+    </div>
+    <br>
+    <hr>
+</body>
+</html>

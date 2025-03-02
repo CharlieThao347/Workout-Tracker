@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% load static %}
+  <meta charset="utf-8">
+  <title>Home</title>
+  <!--bootstrap includes-->
+  {% include "links.html" %}
+  <link rel="stylesheet" href="{%static 'workout.css' %}"/>
+  <script src="{%static 'workout.js' %}"></script>
+</head>
+<body>
+  {% include "nav.html" %}
+  <p>
+    <h1 class="center-h">Current Workouts</h1>
+    <br>
+    <div class="center-div">
+      {% if msg %}
+      {{ msg }}
+      <div>
+        <br>
+        <a href="/core/add/" class="btn btn-dark">Add Workout</a>
+      </div>
+    </div>
+      {% else %}
+      <br>
+      <table class="table-striped" cellspacing="0" width="100%">
+	    <tr>
+	      <th><br><p>Workout Name</p></th>
+	      <th><br><p>Date / Time</p></th>
+		    <th><br><p>Action</p></th>
+	    </tr>
+      {% for row in table_data %}
+      <tr>
+	      	<td>{{ row.name }}</td>
+	      	<td><br><p>Created: {{ row.create_time }}</p></td>
+	      	<td>
+	        	<a class="btn btn-dark" href="/core/view/{{ row.id }}/">View</a>
+	        	<a class="btn btn-danger" href="#" onclick="confirmDeleteModal({{ row.id }})">Delete</a>
+            <a class="btn btn-success" href="/core/complete/{{ row.id }}/">Complete</a>
+		      </td>
+		    </tr>
+      {% endfor %}
+      </table>
+      <br>
+      <br>
+      <a href="/core/add/" class="btn btn-dark">Add Workout</a>
+      <br>
+      <hr>
+      {% endif %}
+    </div>
+
+    <div id="deleteModal" class="modal fade" role='dialog'>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h4 class="modal-title">Delete Workout</h4>
+      </div>
+      <div class="modal-body">
+        <p>Do you really want to delete this workout?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-dark" data-dismiss="modal">Cancel</button>
+        <span id= 'deleteButton'></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+  </body>
+  </html>

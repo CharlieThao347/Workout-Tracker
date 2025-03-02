@@ -1,0 +1,24 @@
+<html>
+  <head>
+    {% load static %}
+    {% include "links.html" %}
+    {% load crispy_forms_tags %}
+    <link rel="stylesheet" href="{%static 'workout.css' %}"/>
+  </head>
+  <body>
+    {% include "nav.html" %}
+    <div class="jumbotron">
+      <h1>Add Workout</h1>
+      <br>
+      <form method="POST">
+        {% csrf_token %}
+        <b>Enter a name for your workout</b>
+        {{ workout_form.name|as_crispy_field }}
+          <div>
+          <input type="submit" class="btn btn-dark" name="add" value="Add"/>
+          <a href="/" class="btn btn-danger">Cancel</a>
+          </div>
+      </form>
+    </div>
+  </body>
+</html>

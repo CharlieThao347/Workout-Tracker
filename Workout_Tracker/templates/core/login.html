@@ -1,0 +1,27 @@
+<html>
+  <head>
+    {% load static %}
+    {% include "links.html" %}
+    {% load crispy_forms_tags %}
+    <link rel="stylesheet" href="{%static 'workout.css' %}"/>
+  </head>
+  <body id="bg" style="background-image: url('{% static 'workout.jpg' %}');">
+    {% include "nav.html" %}
+    <br>
+    <br>
+    <div class="container" align="center">
+       <div id="jumbotron-login" class="jumbotron bg-dark text-white">
+        <h1>Login</h1>
+        <br>
+        <form action="/login/" method="POST">{% csrf_token %}
+            {{ login_form|crispy }}
+              <div>
+              <input type="submit" class="btn btn-primary" value = "Login"/>
+            </div>
+              <br>
+              <p>Click <a href="/join">here</a> to join.</p>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

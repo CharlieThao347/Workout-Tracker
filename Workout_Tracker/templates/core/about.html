@@ -1,0 +1,29 @@
+<html>
+  <head>
+    {% load static %}
+    <meta charset="utf-8">
+    <title>About</title>
+    <!--bootstrap includes-->
+    {% include "links.html" %}
+    <link rel="stylesheet" href="{%static 'workout.css' %}"/>
+  </head>
+  <body>
+    {% include "nav.html" %}
+    <br class="block">
+    <p>
+    <h1 class="center-h">About Me</h1>
+    <div class="container">
+      <div class="row">
+        <div class="col-4">
+        </div>
+        <div class="col-4">
+          <img src="{%static 'charlie_thao_screenshot.jpg' %}" class="img-fluid" />
+        </div>
+      </div>
+    <br class="block">
+    <div class="jumbotron, margin">
+    <p>My name is Charlie Thao. I am currently a Chico State undergraduate student pursuing a BS in Computer Science. I really enjoy coding and plan on pursuing a career in software development after I graduate. Of course, this could always change as I am also interested in other fields within computer science such as artifical intelligence and cyber security. Some hobbies that I have are cooking, watching anime, and playing video games.</p>
+  </div>
+</div>
+  </body>
+</html>
